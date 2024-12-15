@@ -1,23 +1,14 @@
 import math
 import random
-
 def hatcheck_exact(n):
-    
-   
     return math.factorial(n) * sum((-1)**k / math.factorial(k) for k in range(n + 1)) / math.factorial(n)
-
 def hatcheck_simulation(n, trials=1000000):
-    
     deranged_count = 0
-
     for _ in range(trials):
         hats = list(range(n))  
         random.shuffle(hats) 
-
-        
         if all(hats[i] != i for i in range(n)):
             deranged_count += 1
-
     return deranged_count / trials
 
 

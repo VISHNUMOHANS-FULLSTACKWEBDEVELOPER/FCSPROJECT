@@ -1,28 +1,19 @@
 import random
-
 def coupon_collector_simulation(num_coupons, trials=1000000):
-
     total_draws = 0
-
     for _ in range(trials):
         collected = set()
         draws = 0
-
         while len(collected) < num_coupons:
             coupon = random.randint(1, num_coupons)
             collected.add(coupon)
             draws += 1
-
-
         total_draws += draws
-
     return total_draws / trials
-
 def coupon_collector_exact(num_coupons):
     expected_draws = 0.0
     for i in range(1, num_coupons + 1):
         expected_draws += num_coupons / i
-
     return expected_draws
 
 

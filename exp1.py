@@ -1,19 +1,14 @@
 import random
-
 def birthday_paradox_simulation(num_people, trials=1000000):
     count_shared_birthdays = 0
-
     for _ in range(trials):
         birthdays = [random.randint(1, 365) for _ in range(num_people)]
         if len(birthdays) > len(set(birthdays)):
             count_shared_birthdays += 1
-
     return count_shared_birthdays / trials
-
 def birthday_paradox_exact(num_people):
     if num_people > 365:
         return 1.0  
-
     prob_no_shared = 1.0
     for i in range(num_people):
         prob_no_shared *= (365 - i) / 365
